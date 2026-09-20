@@ -1,0 +1,975 @@
+# PRODUCT REQUIREMENTS DOCUMENT (PRD)
+# HireFlow — AI Candidate Screening & Interview Intelligence Agent
+# Version: 1.0 — MVP
+
+============================================================
+1. PRODUCT OVERVIEW
+============================================================
+
+HireFlow is an AI-powered recruitment intelligence platform that
+helps recruiters organize candidate information, compare candidates
+against job requirements, prepare interviews, analyze interview
+evidence, and generate structured evaluation reports.
+
+Core principle:
+
+    AI assists hiring teams.
+    Humans make the final hiring decisions.
+
+The product focuses on:
+- Evidence-backed candidate screening
+- Requirement-to-candidate mapping
+- Personalized interview preparation
+- Interview evidence analysis
+- Natural-language candidate search
+- Explainable AI with an audit trail
+
+
+============================================================
+2. PROBLEM
+============================================================
+
+Recruiters and hiring teams spend significant time:
+- Reading large numbers of resumes
+- Extracting relevant candidate information
+- Comparing candidates against job requirements
+- Preparing interview questions
+- Reviewing interview notes
+- Identifying missing information
+- Creating evaluation reports
+
+Candidate information is often distributed across resumes,
+projects, applications and interview notes.
+
+HireFlow centralizes this information and converts it into
+structured, searchable and evidence-backed candidate intelligence.
+
+
+============================================================
+3. PRODUCT GOALS
+============================================================
+
+MVP Goals:
+1. Reduce repetitive resume-screening work.
+2. Standardize candidate evaluation against job requirements.
+3. Generate candidate-specific interview questions.
+4. Identify missing or unclear candidate information.
+5. Structure interview notes and evidence.
+6. Generate standardized evaluation reports.
+7. Allow natural-language candidate search.
+8. Make important AI insights traceable to source evidence.
+
+Non-Goals:
+- Autonomous hiring decisions
+- Automatic candidate rejection
+- Autonomous candidate communication
+- Autonomous interviews
+- Replacing a complete ATS
+- Inferring sensitive personal characteristics
+
+
+============================================================
+4. ASSUMPTIONS
+============================================================
+
+A1. Recruiters and hiring managers are the primary users.
+A2. Resumes are primarily uploaded as PDF/DOCX.
+A3. Interviews are conducted by humans.
+A4. Interview notes are manually entered or pasted.
+A5. MVP does not require ATS integration.
+A6. AI outputs are reviewed by humans before consequential use.
+A7. Candidate grouping is based only on job-relevant information.
+
+Open Questions:
+- Which countries will the product operate in?
+- Which ATS integrations are eventually required?
+- What data-retention policy is required?
+- Which LLM provider will be used?
+- Should interview transcription be supported?
+- Should multiple recruiters collaborate on a role?
+
+
+============================================================
+5. TARGET USERS
+============================================================
+
+Recruiter:
+- Manage roles
+- Upload resumes
+- Review candidates
+- Search candidate pool
+
+Hiring Manager:
+- Review candidate evidence
+- Review requirement coverage
+- Review interview evaluations
+
+Interviewer:
+- View candidate context
+- Generate interview questions
+- Record interview notes
+- Generate follow-ups
+
+Admin:
+- Manage users
+- Manage permissions
+- Review audit logs
+
+
+============================================================
+6. CORE USER FLOW
+============================================================
+
+Create Role
+    ↓
+Upload Job Description
+    ↓
+Extract Requirements
+    ↓
+Recruiter Reviews Requirements
+    ↓
+Upload Candidate Resumes
+    ↓
+Extract Candidate Information
+    ↓
+Map Candidate Evidence → Requirements
+    ↓
+Review Candidate
+    ↓
+Generate Interview Questions
+    ↓
+Conduct Interview
+    ↓
+Add Interview Notes
+    ↓
+Map Interview Evidence → Requirements
+    ↓
+Identify Unanswered Areas
+    ↓
+Generate Evaluation Report
+    ↓
+Human Hiring Decision
+
+
+============================================================
+7. INFORMATION ARCHITECTURE
+============================================================
+
+HireFlow
+│
+├── Dashboard
+│
+├── Roles
+│   └── Role Workspace
+│       ├── Overview
+│       ├── Requirements
+│       ├── Candidates
+│       ├── Interviews
+│       └── Activity
+│
+├── Candidates
+│   └── Candidate Workspace
+│       ├── Profile
+│       ├── Evidence
+│       ├── Requirements
+│       ├── Interview
+│       └── Evaluation
+│
+├── Candidate Search
+│
+└── Settings
+    ├── Organization
+    ├── Users
+    └── Permissions
+
+
+============================================================
+8. ROLE MANAGEMENT
+============================================================
+
+Recruiter can:
+- Create a role
+- Enter role title
+- Upload/paste job description
+- Generate structured requirements
+- Edit requirements
+- Mark requirements as Required/Preferred
+- Approve requirements
+
+Requirement fields:
+- Description
+- Type
+- Priority
+- Source in JD
+- Approval status
+
+
+============================================================
+9. CANDIDATE MANAGEMENT
+============================================================
+
+Recruiter can:
+- Upload resumes
+- View candidate profiles
+- Edit extracted information
+- View source evidence
+- Compare candidate evidence with requirements
+
+AI extracts:
+- Name
+- Experience
+- Job titles
+- Skills
+- Technologies
+- Projects
+- Education
+- Certifications
+- Relevant achievements
+
+
+============================================================
+10. REQUIREMENT MAPPING
+============================================================
+
+Each candidate requirement should have a status:
+
+SUPPORTED
+    Evidence directly supports the requirement.
+
+PARTIALLY SUPPORTED
+    Some relevant evidence exists.
+
+NOT FOUND
+    No relevant evidence was found.
+
+UNCLEAR
+    Information exists but requires validation.
+
+NOT APPLICABLE
+    Requirement does not apply.
+
+Important:
+"Not Found" must NOT be interpreted as "Candidate does not
+have this skill."
+
+
+============================================================
+11. EVIDENCE SYSTEM
+============================================================
+
+Every important AI insight should be traceable.
+
+Example:
+
+Requirement:
+    AWS Experience
+
+Candidate Evidence:
+    "Managed AWS infrastructure..."
+
+Source:
+    Resume.pdf → Experience section
+
+AI Interpretation:
+    Candidate has relevant AWS experience.
+
+The UI must distinguish:
+- Original candidate evidence
+- AI interpretation
+- Human evaluation
+
+
+============================================================
+12. CANDIDATE SUMMARY
+============================================================
+
+Generate a structured summary containing:
+
+- Candidate Overview
+- Relevant Experience
+- Key Skills
+- Role Alignment
+- Supporting Evidence
+- Unclear Information
+- Validation Areas
+- Interview Focus Areas
+
+AI must not present unsupported assumptions as facts.
+
+
+============================================================
+13. CANDIDATE GROUPING
+============================================================
+
+Candidates can be grouped by relevant experience.
+
+Example:
+- Strong Backend Experience
+- Strong Frontend Experience
+- Relevant Domain Experience
+- Requires Validation
+- Limited Evidence
+
+Groups must have an explainable reason.
+
+Example:
+"Grouped because the candidate has explicit Python and backend
+experience."
+
+
+============================================================
+14. INTERVIEW INTELLIGENCE
+============================================================
+
+HireFlow generates questions based on:
+
+- Job requirements
+- Candidate experience
+- Existing evidence
+- Missing information
+- Previously validated areas
+
+Question structure:
+
+Interview Area
+    ↓
+Primary Question
+    ↓
+Evidence to Look For
+    ↓
+Follow-up Question
+    ↓
+Requirement Being Validated
+
+
+============================================================
+15. FOLLOW-UP QUESTIONS
+============================================================
+
+Generate follow-ups when:
+- Candidate answer is vague
+- Requirement remains unclear
+- Evidence conflicts
+- Important details are missing
+- Interviewer requests deeper validation
+
+Example:
+
+Question:
+"Describe a system you designed."
+
+Follow-up:
+"What trade-offs influenced your architecture choice?"
+
+Interviewer should be able to manually request a follow-up.
+
+
+============================================================
+16. INTERVIEW NOTES
+============================================================
+
+Interview notes should contain:
+
+- Interview area
+- Question
+- Candidate answer/notes
+- Evidence
+- Interviewer comments
+- Validation status
+
+Notes can be mapped to job requirements.
+
+
+============================================================
+17. INTERVIEW SUMMARY
+============================================================
+
+After the interview, generate:
+
+- Key evidence
+- Requirements validated
+- Partially validated requirements
+- Unanswered requirements
+- Contradictions
+- Additional validation areas
+
+The AI must not make the final hiring decision.
+
+
+============================================================
+18. EVALUATION REPORT
+============================================================
+
+Report structure:
+
+Candidate
+Role
+Interview Date
+Interviewers
+
+--------------------------------
+Requirement Coverage
+--------------------------------
+
+Requirement | Evidence | Status
+
+--------------------------------
+Interview Evidence
+--------------------------------
+
+Relevant Evidence
+Validation Gaps
+Unanswered Areas
+Contradictions
+
+--------------------------------
+Human Evaluation
+--------------------------------
+
+Human-written assessment remains editable.
+
+
+============================================================
+19. NATURAL-LANGUAGE SEARCH
+============================================================
+
+Recruiter can ask:
+
+"Show candidates with backend and cloud experience."
+
+System flow:
+
+User Query
+    ↓
+Query Understanding
+    ↓
+Candidate Retrieval
+    ↓
+Evidence Retrieval
+    ↓
+AI Synthesis
+    ↓
+Evidence-backed Results
+
+Results should include:
+- Candidate
+- Matching evidence
+- Reason for match
+- Source
+
+
+============================================================
+20. AUDIT TRAIL
+============================================================
+
+Track important AI operations.
+
+Audit record:
+
+- User
+- Action
+- Entity
+- Source documents
+- Evidence
+- AI/model identifier where available
+- Timestamp
+
+Example:
+
+AI Insight
+    ↓
+Source Document
+    ↓
+Evidence
+    ↓
+Generated Insight
+    ↓
+Timestamp
+
+
+============================================================
+21. AI ARCHITECTURE
+============================================================
+
+Do NOT use one giant AI prompt.
+
+Recommended pipeline:
+
+Job Description
+      ↓
+Document Parser
+      ↓
+Requirement Extraction
+      ↓
+Structured Requirements
+
+Resume
+      ↓
+Document Parser
+      ↓
+Candidate Extraction
+      ↓
+Evidence Store
+      ↓
+Requirement Matching
+      ↓
+Candidate Intelligence
+
+Interview Notes
+      ↓
+Evidence Extraction
+      ↓
+Requirement Mapping
+      ↓
+Interview Summary
+      ↓
+Evaluation Report
+
+
+============================================================
+22. AI COMPONENTS
+============================================================
+
+1. Document Extraction
+2. Requirement Extraction
+3. Candidate Information Extraction
+4. Evidence Matching
+5. Candidate Summarization
+6. Interview Question Generation
+7. Follow-up Generation
+8. Interview Summarization
+9. Natural-Language Search
+10. Evidence Retrieval
+
+AI must:
+- Prefer explicit evidence
+- Distinguish missing information from negative evidence
+- Surface uncertainty
+- Avoid unsupported claims
+- Preserve source references
+- Allow human correction
+
+
+============================================================
+23. TECHNICAL ARCHITECTURE
+============================================================
+
+                    Web Application
+                           │
+                           ▼
+                      Backend API
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+        Roles         Candidates          Auth
+          │                │
+          └──────────┬─────┘
+                     ▼
+              AI Orchestration
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+      Extraction  Retrieval  Generation
+                     │
+                     ▼
+                Evidence Layer
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   PostgreSQL   Object Storage  Vector Search
+
+
+============================================================
+24. RECOMMENDED TECH STACK
+============================================================
+
+Frontend:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion or equivalent for subtle UI motion
+
+Backend:
+- Node.js
+- TypeScript
+- Fastify/NestJS or Next.js API layer
+
+Database:
+- PostgreSQL
+
+File Storage:
+- S3-compatible object storage
+
+Vector Search:
+- PostgreSQL vector extension initially
+
+AI:
+- External LLM API
+- Internal AI abstraction layer
+
+Authentication:
+- Managed authentication provider or secure custom auth
+
+
+============================================================
+25. CORE DATABASE ENTITIES
+============================================================
+
+Organization
+User
+Role
+Requirement
+Candidate
+Document
+Evidence
+RequirementMapping
+Interview
+InterviewQuestion
+InterviewNote
+Evaluation
+AuditEvent
+
+Relationship:
+
+Organization
+    ↓
+Users + Roles
+    ↓
+Requirements
+    ↓
+Candidates
+    ↓
+Evidence
+    ↓
+Interviews
+    ↓
+Evaluations
+
+
+============================================================
+26. CORE APIs
+============================================================
+
+POST   /roles
+GET    /roles
+GET    /roles/:id
+PATCH  /roles/:id
+
+POST   /roles/:id/documents
+POST   /roles/:id/analyze
+
+POST   /roles/:id/candidates
+GET    /roles/:id/candidates
+
+GET    /candidates/:id
+GET    /candidates/:id/evidence
+GET    /candidates/:id/requirements
+
+POST   /candidates/:id/interview
+POST   /interviews/:id/questions
+POST   /interviews/:id/followups
+POST   /interviews/:id/notes
+
+POST   /candidates/:id/evaluation
+
+POST   /search/candidates
+
+GET    /audit/:entityType/:entityId
+
+
+============================================================
+27. UX / UI REQUIREMENTS
+============================================================
+
+Design direction:
+
+Professional
++ Intelligent
++ Trustworthy
++ Minimal
++ Evidence-focused
+
+Role Workspace:
+
+Overview | Requirements | Candidates | Interviews | Activity
+
+Candidate Workspace:
+
+Candidate Header
+      ↓
+Candidate Summary
+      ↓
+Requirement/Evidence Matrix
+      ↓
+Interview Intelligence
+      ↓
+Evaluation
+
+Important interaction:
+
+Click AI insight
+    ↓
+Show supporting source
+    ↓
+Highlight relevant evidence
+
+
+============================================================
+28. SECURITY & PRIVACY
+============================================================
+
+Required:
+- Authentication
+- Role-based access control
+- Encryption in transit
+- Secure document storage
+- Encryption at rest where supported
+- Server-side API keys
+- Candidate-data access controls
+- Audit logging
+- Secure deletion/retention controls
+
+AI security:
+- Review AI provider data-processing policies
+- Protect against prompt/document injection
+- Do not expose confidential candidate data unnecessarily
+
+
+============================================================
+29. HIGH-RISK RECRUITMENT SAFEGUARDS
+============================================================
+
+HireFlow must not:
+- Automatically make hiring decisions
+- Automatically reject candidates
+- Infer sensitive personal characteristics
+- Hide evidence behind an AI recommendation
+- Present AI output as objective truth
+
+Every important AI insight should follow:
+
+Requirement
+    +
+Evidence
+    +
+AI Interpretation
+    +
+Uncertainty
+    +
+Human Review
+
+
+============================================================
+30. FAILURE STATES
+============================================================
+
+Resume parsing failure:
+    "Unable to process this document."
+    → Upload replacement
+
+AI failure:
+    "AI analysis is temporarily unavailable."
+    → Retry
+
+Missing evidence:
+    "No supporting evidence was found."
+
+Contradiction:
+    "Potential inconsistency detected."
+    → Review evidence
+
+Low confidence:
+    "Insufficient evidence to reliably evaluate this requirement."
+
+
+============================================================
+31. MVP PRIORITY
+============================================================
+
+P0 — Must Have:
+- Role creation
+- JD upload
+- Requirement extraction
+- Requirement editing
+- Resume upload
+- Candidate extraction
+- Requirement mapping
+- Evidence references
+- Candidate summaries
+- Interview questions
+- Follow-up questions
+- Interview notes
+- Interview summary
+- Evaluation report
+- Audit trail
+
+P1:
+- Natural-language candidate search
+- Candidate grouping
+
+P2:
+- ATS integrations
+- Advanced analytics
+- Candidate communication
+- Autonomous interviewing
+
+
+============================================================
+32. FEATURE DEPENDENCIES
+============================================================
+
+Role Creation
+      ↓
+Requirement Extraction
+      ↓
+Requirement Approval
+      ↓
+Candidate Upload
+      ↓
+Candidate Extraction
+      ↓
+Requirement Mapping
+      ↓
+Evidence Layer
+      ↓
+Interview Intelligence
+      ↓
+Evaluation
+      ↓
+Natural-Language Search
+
+
+============================================================
+33. DEVELOPMENT PHASES
+============================================================
+
+Phase 1:
+Platform foundation
+- Authentication
+- Database
+- Roles
+- File storage
+
+Phase 2:
+Candidate intelligence
+- JD parsing
+- Resume parsing
+- Requirement mapping
+- Evidence system
+
+Phase 3:
+Recruiter workspace
+- Dashboard
+- Candidate workspace
+- Requirement matrix
+- Candidate grouping
+
+Phase 4:
+Interview intelligence
+- Question generation
+- Follow-ups
+- Interview notes
+- Requirement validation
+
+Phase 5:
+Evaluation + audit
+- Interview summaries
+- Evaluation reports
+- Audit trail
+
+Phase 6:
+Search + hardening
+- Natural-language search
+- Security
+- Performance
+- Error handling
+- UX refinement
+
+
+============================================================
+34. MVP ACCEPTANCE CRITERIA
+============================================================
+
+The MVP is successful when a recruiter can:
+
+[✓] Create a role
+[✓] Upload a job description
+[✓] Extract and edit requirements
+[✓] Upload candidate resumes
+[✓] Generate structured candidate profiles
+[✓] View supporting evidence
+[✓] Map candidates to requirements
+[✓] Generate candidate-specific interview questions
+[✓] Generate follow-up questions
+[✓] Record interview notes
+[✓] Identify unanswered requirements
+[✓] Generate an evaluation report
+[✓] Search candidates using natural language
+[✓] Trace important AI insights back to evidence
+[✓] Make the final hiring decision themselves
+
+
+============================================================
+35. FINAL BUILD SUMMARY
+============================================================
+
+PRODUCT:
+HireFlow — AI Candidate Screening & Interview Intelligence Agent
+
+TARGET USERS:
+Recruiters, hiring managers, interviewers, administrators
+
+CORE WORKFLOW:
+JD → Requirements → Resumes → Candidate Evidence
+→ Requirement Mapping → Interview → Notes → Evaluation
+
+MVP FEATURES:
+Role management, resume analysis, candidate mapping,
+evidence system, interview intelligence, evaluation reports,
+natural-language search, audit trail.
+
+ARCHITECTURE:
+Next.js → Backend API → AI Orchestration
+→ PostgreSQL + Object Storage + Vector Retrieval
+
+TECH STACK:
+Next.js, React, TypeScript, Tailwind, Node.js,
+PostgreSQL, S3-compatible storage, LLM API
+
+DATABASE:
+PostgreSQL
+
+APIs:
+Roles, Candidates, Documents, Requirements, Interviews,
+Evaluations, Search, Audit
+
+AI COMPONENTS:
+Extraction, requirement matching, evidence retrieval,
+summarization, question generation, follow-ups,
+interview analysis, natural-language search
+
+SECURITY:
+Authentication, RBAC, encryption, secure storage,
+audit logs, retention controls, AI data protection
+
+DEVELOPMENT:
+Foundation → Candidate Intelligence → Recruiter Workspace
+→ Interview Intelligence → Evaluation/Audit → Search/Hardening
+
+FINAL PRINCIPLE:
+HireFlow should not replace human hiring decisions.
+
+The core product loop is:
+
+        REQUIREMENT
+             ↓
+          EVIDENCE
+             ↓
+       AI INTERPRETATION
+             ↓
+         VALIDATION
+             ↓
+       HUMAN DECISION

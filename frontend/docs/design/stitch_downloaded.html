@@ -1,0 +1,403 @@
+<!DOCTYPE html><html class="h-full bg-[#f3f2f2]" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>HireFlow — Autonomous Executive Talent Intelligence</title>
+<!-- Google Fonts: Space Grotesk & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config Customization -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            onyx: '#0F0F0F',
+            graphite: '#2D2E2E',
+            dimgrey: '#716969',
+            lilacash: '#BCABAE',
+            offwhite: '#FBFBFB',
+            canvasbg: '#f3f2f2',
+            brandred: '#FF3B30'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.06em',
+            mega: '-0.04em',
+            superwide: '0.25em'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles: Typography & Base Layout -->
+<style data-purpose="typography">
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-hero {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+    .backdrop-blur-subtle {
+      backdrop-filter: blur(8px);
+    }
+  </style>
+<!-- Custom Styles: Geometric Canvas and Interactive Utilities -->
+<style data-purpose="canvas-and-effects">
+    #model-canvas {
+      touch-action: none;
+      user-select: none;
+    }
+    /* Grid texture background */
+    .wireframe-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 15, 15, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 15, 15, 0.03) 1px, transparent 1px);
+    }
+    /* Difference blending for contrasting text over 3D model:
+       Light background (#f3f2f2) + difference white = dark text (#0c0d0d)
+       Dark 3D model vertices/edges (#000000) + difference white = bright white text (#ffffff) */
+    .contrast-diff-text {
+      mix-blend-mode: difference;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="h-screen w-screen bg-[#f3f2f2] text-onyx flex flex-col justify-between select-none relative overflow-hidden wireframe-grid">
+<!-- BEGIN: TopHeader -->
+<!-- Header segmented exactly into Left Logo Block and Right Navigation Block matching wireframe -->
+<header class="w-full pt-4 px-4 sm:pt-6 sm:px-8 z-30 flex items-start justify-between gap-4" data-purpose="top-navigation">
+<!-- Left Solid Black Block: Logo / Name of Website -->
+<div class="px-6 py-3.5 sm:px-8 sm:py-4 flex items-center gap-3 tracking-wider font-display font-bold text-sm sm:text-base cursor-pointer hover:bg-opacity-95 transition-all bg-transparent text-[#0F0F0F]" data-purpose="brand-logo-container">
+<span class="w-2.5 h-2.5 rounded-full bg-[#FF3B30] inline-block animate-ping"></span>
+<span class="tracking-[0.2em] uppercase text-[#0F0F0F] font-semibold">HIREFLOW</span>
+<span class="hidden md:inline-block text-[10px] text-neutral-400 font-mono pl-2 border-l border-neutral-700">OS 3.4v</span>
+</div>
+<!-- Right Solid Black Block: Navigation and Access Controls -->
+<nav class="px-4 py-2 sm:px-7 sm:py-3 flex items-center space-x-4 sm:space-x-8 font-sans text-xs sm:text-sm font-medium tracking-wide bg-transparent" data-purpose="navigation-menu">
+<div class="hidden lg:flex items-center space-x-6 text-[#0F0F0F]">
+<a class="hover:text-neutral-700 transition-colors duration-200 font-medium" href="#methodology">Methodology</a>
+<a class="hover:text-neutral-700 transition-colors duration-200 flex items-center gap-1.5 font-medium" href="#engine">
+<span class="">Engine</span>
+<span class="bg-[#2D2E2E] text-[10px] text-[#BCABAE] px-1.5 py-0.5 rounded">AI</span>
+</a>
+<a class="hover:text-neutral-700 transition-colors duration-200 font-medium" href="#governance">Audits</a>
+</div>
+<!-- Action Button / Request Access inside Navigation block -->
+<button class="bg-[#2D2E2E] hover:bg-[#FF3B30] hover:text-white text-neutral-100 font-display font-medium text-xs sm:text-sm px-4 py-2 transition-all duration-300 flex items-center gap-2 border border-neutral-700" data-purpose="request-access-cta">
+<span class="">Request Access</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</nav>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: CentralHero -->
+<!-- Central viewport section containing the significantly enlarged 3D model with inverted contrasting HIREFLOW typography -->
+<main class="relative flex-1 w-full flex items-center justify-center overflow-visible" data-purpose="hero-3d-stage">
+<!-- 3D Canvas + Circle Framing Container (Red circle removed, model enlarged) -->
+<div class="relative w-[500px] h-[500px] sm:w-[720px] sm:h-[720px] lg:w-[920px] lg:h-[920px] flex items-center justify-center">
+<!-- Interactive 3D Model Canvas -->
+<!-- Interactive drag & rotate capability -->
+<canvas class="w-full h-full cursor-grab active:cursor-grabbing z-0" data-purpose="threejs-canvas" id="model-canvas" width="1150" height="1150"></canvas>
+<!-- Label indicator -->
+<div class="absolute top-6 sm:top-12 pointer-events-none z-10 font-mono text-[10px] sm:text-xs tracking-widest text-[#716969] uppercase font-medium bg-[#f3f2f2]/80 px-2 py-0.5 rounded">
+        [ 3D LATTICE ENGINE ]
+      </div>
+<!-- Giant Centered Typography "HIREFLOW" overlapping the enlarged 3D lattice with mix-blend-mode difference:
+     portions overlapping the black 3D model become white, portions over light canvas remain dark black -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20" data-purpose="giant-hero-title">
+<h1 class="font-hero font-extrabold text-[4.8rem] sm:text-[7.5rem] md:text-[9.5rem] lg:text-[12rem] xl:text-[13.5rem] leading-none select-none whitespace-nowrap transform -translate-y-1 contrast-diff-text tracking-wide" style="-webkit-text-stroke: 2px rgb(15, 15, 15); letter-spacing: 0.06em;"><span class="text-[#0F0F0F]" style="-webkit-text-fill-color: rgb(15, 15, 15); mix-blend-mode: normal;">HIRE</span><span class="">FLOW</span></h1>
+</div>
+</div>
+</main>
+<!-- END: CentralHero -->
+<!-- BEGIN: BottomInteractiveBar -->
+<!-- Bottom solid black section containing clickable actions, telemetry, and interactive controls -->
+<footer class="w-full pb-4 sm:pb-7 px-4 flex justify-center z-30" data-purpose="bottom-controls-bar">
+<div class="w-full max-w-5xl bg-[#0F0F0F] text-white px-5 py-4 sm:px-8 sm:py-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 border border-neutral-800" data-purpose="bottom-action-container">
+<!-- Primary / Secondary CTAs -->
+<div class="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+<button class="bg-white hover:bg-[#FF3B30] hover:text-white text-[#0F0F0F] font-display font-bold text-xs sm:text-sm px-5 py-2.5 transition-all duration-200 flex items-center gap-2 group shadow-md" data-purpose="primary-action-btn" id="btn-initialize">
+<span class="">Initialize Protocol</span>
+<span class="group-hover:translate-x-0.5 transition-transform">→</span>
+</button>
+<button class="bg-[#2D2E2E] hover:bg-neutral-800 text-neutral-200 text-xs sm:text-sm px-4 py-2.5 transition-all border border-neutral-700 hover:border-neutral-500 font-medium" data-purpose="secondary-action-btn">
+          Explore Benchmarks
+        </button>
+<button class="bg-transparent hover:bg-neutral-800 text-neutral-400 hover:text-white text-xs px-3 py-2.5 transition-all border border-neutral-800 flex items-center gap-1.5" data-purpose="reset-3d-button" id="btn-reset-3d" title="Re-center 3D Lattice">
+<span class="">Reset Core</span>
+<span class="text-sm">↺</span>
+</button>
+</div>
+<!-- Telemetry & Status Badges -->
+<div class="flex items-center justify-center gap-4 text-xs font-mono text-neutral-400 border-t border-neutral-800 md:border-t-0 pt-3 md:pt-0 w-full md:w-auto">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-neutral-300 font-sans tracking-normal font-medium">SOC2 TYPE-III</span>
+</div>
+<span class="text-neutral-700">|</span>
+<div class="text-[11px]">
+          LATENCY: <span class="text-white font-semibold">14ms</span>
+</div>
+<span class="text-neutral-700">|</span>
+<div class="text-[11px] text-[#BCABAE] hidden sm:inline-block">
+          SYS: SYNCHRONIZED
+        </div>
+</div>
+</div>
+</footer>
+<!-- END: BottomInteractiveBar -->
+<!-- BEGIN: InteractiveScripts -->
+<!-- Procedural 3D Canvas Render Engine with Gyro-Rings, Wireframe Lattice, and Kinetic Physics -->
+<script data-purpose="procedural-3d-engine">
+    (function () {
+      const canvas = document.getElementById('model-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height, dpr;
+
+      // 3D Rotation Variables
+      let rotX = 0.25;
+      let rotY = 0.4;
+      let targetRotX = 0.25;
+      let targetRotY = 0.4;
+      let velocityX = 0.003;
+      let velocityY = 0.005;
+
+      let isDragging = false;
+      let lastPointerX = 0;
+      let lastPointerY = 0;
+
+      // Mathematical vertices for an Icosahedron (12 vertices, 30 edges)
+      const phi = (1 + Math.sqrt(5)) / 2;
+      const baseVertices = [
+        [-1,  phi, 0], [ 1,  phi, 0], [-1, -phi, 0], [ 1, -phi, 0],
+        [0, -1,  phi], [0,  1,  phi], [0, -1, -phi], [0,  1, -phi],
+        [ phi, 0, -1], [ phi, 0,  1], [-phi, 0, -1], [-phi, 0,  1]
+      ];
+
+      // Normalize vertices to unit sphere
+      const icosahedronVertices = baseVertices.map(([x, y, z]) => {
+        const len = Math.hypot(x, y, z);
+        return [x / len, y / len, z / len];
+      });
+
+      // Calculate edges based on distance threshold
+      const edges = [];
+      for (let i = 0; i < icosahedronVertices.length; i++) {
+        for (let j = i + 1; j < icosahedronVertices.length; j++) {
+          const dx = icosahedronVertices[i][0] - icosahedronVertices[j][0];
+          const dy = icosahedronVertices[i][1] - icosahedronVertices[j][1];
+          const dz = icosahedronVertices[i][2] - icosahedronVertices[j][2];
+          const dist = Math.hypot(dx, dy, dz);
+          if (Math.abs(dist - 1.051) < 0.15) {
+            edges.push([i, j]);
+          }
+        }
+      }
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      // Mouse & Touch interaction
+      function onPointerDown(e) {
+        isDragging = true;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        lastPointerX = clientX;
+        lastPointerY = clientY;
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging) return;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        const deltaX = clientX - lastPointerX;
+        const deltaY = clientY - lastPointerY;
+        
+        targetRotY += deltaX * 0.009;
+        targetRotX += deltaY * 0.009;
+
+        lastPointerX = clientX;
+        lastPointerY = clientY;
+      }
+
+      function onPointerUp() {
+        isDragging = false;
+      }
+
+      // Mouse move on window for interactive parallax tracking
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) {
+          const normX = (e.clientX / window.innerWidth) - 0.5;
+          const normY = (e.clientY / window.innerHeight) - 0.5;
+          targetRotY = rotY + (normX * 0.002);
+          targetRotX = rotX + (normY * 0.002);
+        }
+      });
+
+      canvas.addEventListener('mousedown', onPointerDown);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      canvas.addEventListener('touchstart', onPointerDown, { passive: true });
+      window.addEventListener('touchmove', onPointerMove, { passive: true });
+      window.addEventListener('touchend', onPointerUp);
+
+      // Reset Core Orientation CTA
+      const resetBtn = document.getElementById('btn-reset-3d');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          targetRotX = 0.25;
+          targetRotY = 0.4;
+          velocityX = 0.003;
+          velocityY = 0.005;
+        });
+      }
+
+      // 3D Projection Math (Enlarged scale radius)
+      function project(x, y, z, scaleRadius) {
+        // Rotate X
+        const cosX = Math.cos(rotX);
+        const sinX = Math.sin(rotX);
+        const y1 = y * cosX - z * sinX;
+        const z1 = y * sinX + z * cosX;
+
+        // Rotate Y
+        const cosY = Math.cos(rotY);
+        const sinY = Math.sin(rotY);
+        const x2 = x * cosY + z1 * sinY;
+        const z2 = -x * sinY + z1 * cosY;
+
+        // Perspective Camera projection (brought closer for magnified scale)
+        const fov = 3.2;
+        const distance = 3.6;
+        const perspective = fov / (distance - z2);
+
+        return {
+          px: (width / 2) + x2 * scaleRadius * perspective,
+          py: (height / 2) + y1 * scaleRadius * perspective,
+          depth: z2,
+          scale: perspective
+        };
+      }
+
+      // Animation Loop
+      function render() {
+        // Continuous organic idle rotation when not dragging
+        if (!isDragging) {
+          rotY += velocityY;
+          rotX += velocityX * 0.3;
+        } else {
+          rotX += (targetRotX - rotX) * 0.15;
+          rotY += (targetRotY - rotY) * 0.15;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Significantly increased scale radius (~1.7x previous size)
+        const radius = Math.min(width, height) * 0.48;
+
+        // Project Icosahedron vertices
+        const projectedNodes = icosahedronVertices.map(([vx, vy, vz]) => {
+          return project(vx, vy, vz, radius);
+        });
+
+        // 1. Draw Gyroscopic Outer Axis Ring (Tilted Orbit)
+        ctx.beginPath();
+        const steps = 72;
+        for (let i = 0; i <= steps; i++) {
+          const angle = (i / steps) * Math.PI * 2;
+          const gx = Math.cos(angle) * 1.25;
+          const gy = Math.sin(angle) * 1.25;
+          const p = project(gx, gy, 0, radius);
+          if (i === 0) ctx.moveTo(p.px, p.py);
+          else ctx.lineTo(p.px, p.py);
+        }
+        ctx.strokeStyle = 'rgba(40, 40, 40, 0.45)';
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 2. Draw Solid Black Wireframe Lattice Edges (Optimized for difference blend inversion)
+        edges.forEach(([startIdx, endIdx]) => {
+          const p1 = projectedNodes[startIdx];
+          const p2 = projectedNodes[endIdx];
+
+          const avgDepth = (p1.depth + p2.depth) / 2;
+          // Depth alpha shading
+          const alpha = Math.max(0.35, Math.min(1.0, (avgDepth + 1.2) / 2.0));
+
+          ctx.beginPath();
+          ctx.moveTo(p1.px, p1.py);
+          ctx.lineTo(p2.px, p2.py);
+          ctx.strokeStyle = `rgba(0, 0, 0, ${alpha})`;
+          ctx.lineWidth = avgDepth > 0 ? 3.0 : 1.8;
+          ctx.stroke();
+        });
+
+        // 3. Draw Center Pulsing Core (Expanded)
+        const coreProj = project(0, 0, 0, radius);
+        const coreGradient = ctx.createRadialGradient(
+          coreProj.px, coreProj.py, 3,
+          coreProj.px, coreProj.py, 36
+        );
+        coreGradient.addColorStop(0, 'rgba(0, 0, 0, 0.95)');
+        coreGradient.addColorStop(0.5, 'rgba(30, 30, 30, 0.5)');
+        coreGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = coreGradient;
+        ctx.beginPath();
+        ctx.arc(coreProj.px, coreProj.py, 36, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 4. Draw Icosahedron Vertices / Solid Nodes
+        projectedNodes.forEach((node) => {
+          const nodeRadius = (node.depth + 1.5) * 4.2;
+          const clampedRadius = Math.max(3.5, Math.min(9.5, nodeRadius));
+
+          ctx.beginPath();
+          ctx.arc(node.px, node.py, clampedRadius, 0, Math.PI * 2);
+          ctx.fillStyle = '#000000';
+          ctx.fill();
+
+          // Subtle concentric orbit ring around closest foreground node
+          if (node.depth > 0.7) {
+            ctx.strokeStyle = '#000000';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(node.px, node.py, clampedRadius + 5, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+        });
+
+        requestAnimationFrame(render);
+      }
+
+      render();
+    })();
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+</body></html>

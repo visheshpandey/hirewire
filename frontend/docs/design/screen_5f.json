@@ -1,0 +1,348 @@
+{
+  "screenshot": {
+    "name": "projects/15989283783213591566/files/5892943390652372554",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1UCHv6b7iNAnpTY_eJChGJMopMyEP6F381IXhQ451rtfDaIV4Qpq8yNGXY-03wiFAcCn0ylb_OCT94J04fy9cObgYXfDSB4bGxf8DQsOGetHlVntBaxbV3wcn21aMzzEodm56BgVAqqFqAwBjK_4sYfXUSpTEXoy5_p7vnf1werVAaLO-bv5eWl_084vV7tXhsiCbQic0glfIFUN6rkTypD1dnZQ90YcluME_JeUNTBHEQvI4-Lz99DrlsR"
+  },
+  "htmlCode": {
+    "name": "projects/15989283783213591566/files/5889105031490906933",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1YmQ4MzQ2MDFiY2EwMzZjNDg1MGQzMmY2MGRmEgsSBxCqipLclwkYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTk4OTI4Mzc4MzIxMzU5MTU2Ng&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "5f426346802b466fb9c42cda6e9dab7a",
+  "generatedBy": "HatterAgent",
+  "width": "2560",
+  "height": "2048",
+  "title": "HireFlow — High Contrast Interactive 3D Landing",
+  "prompt": "On screen {{DATA:SCREEN:SCREEN_2}}:\n1. REMOVE the red circular border line (the red neon circular ring around the 3D model and any associated red circle SVG/DOM or 3D red ring line).\n2. INCREASE the size of the 3D model significantly: make the central 3D wireframe lattice, icosahedron/octahedron, and particle core larger (scale up the Three.js geometry/camera zoom, e.g. camera closer or geometry size increased by ~1.6x-2x so it fills more of the center space dynamically).\n3. CONTRASTING TEXT EFFECT: The user requested: \"make the text color contrasting like where the text color and 3d model color becomes same both black change the color of the text in only that much portion to white not whole text color so the color of text should not be same as the color of the background model\".\n   - Implement this cleanly using CSS `mix-blend-mode: difference;` or an elegant multi-layer inverted mask/blend technique on the giant \"HIREFLOW\" heading (e.g. `color: #ffffff; mix-blend-mode: difference;` or using inverted blending with a clean high-contrast presentation where overlapping black elements invert to white/off-white and light background portions invert to black/deep charcoal, or setting the text element with `mix-blend-mode: difference; color: white;` over the light canvas and dark 3D model, ensuring that where the 3D model is dark/black underneath the letters, those exact overlapping portions appear crisp white, while over the light canvas they appear deep black!).\n   - Ensure the Three.js canvas renders both the 3D geometry clearly and interacts with pointer drag seamlessly.\n4. Keep the top left and right header blocks and the bottom clickable buttons bar from the wireframe schema layout.\n5. Retain clean, fluid 3D mouse interaction (click and drag to rotate the 3D model).",
+  "name": "projects/15989283783213591566/screens/5f426346802b466fb9c42cda6e9dab7a",
+  "theme": {
+    "colorMode": "LIGHT",
+    "font": "GEIST",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#0f0f0f",
+    "headlineFont": "GEIST",
+    "bodyFont": "GEIST",
+    "labelFont": "JETBRAINS_MONO",
+    "namedColors": {
+      "surface_dim": "#e3d7d7",
+      "surface_container_high": "#f1e6e5",
+      "surface_tint": "#5f5e5e",
+      "on_tertiary_container": "#8f8083",
+      "on_secondary_fixed": "#1b1c1c",
+      "on_primary": "#ffffff",
+      "secondary": "#5e5e5e",
+      "on_secondary_container": "#646464",
+      "background": "#fff8f7",
+      "surface_container_low": "#fdf1f1",
+      "on_secondary_fixed_variant": "#464747",
+      "surface_variant": "#ebe0e0",
+      "primary_fixed_dim": "#c8c6c5",
+      "on_tertiary": "#ffffff",
+      "inverse_surface": "#352f2f",
+      "on_surface": "#201a1a",
+      "tertiary": "#000000",
+      "secondary_fixed_dim": "#c7c6c6",
+      "error_container": "#ffdad6",
+      "surface_container_highest": "#ebe0e0",
+      "on_secondary": "#ffffff",
+      "outline_variant": "#c4c7c7",
+      "on_primary_container": "#858383",
+      "surface": "#fff8f7",
+      "tertiary_fixed_dim": "#d4c2c5",
+      "on_tertiary_fixed_variant": "#504446",
+      "surface_container_lowest": "#ffffff",
+      "on_surface_variant": "#444748",
+      "error": "#ba1a1a",
+      "inverse_primary": "#c8c6c5",
+      "inverse_on_surface": "#faeeee",
+      "tertiary_container": "#23191b",
+      "secondary_container": "#e3e2e2",
+      "secondary_fixed": "#e3e2e2",
+      "outline": "#747878",
+      "on_primary_fixed": "#1c1b1b",
+      "on_error": "#ffffff",
+      "primary_fixed": "#e5e2e1",
+      "on_primary_fixed_variant": "#474646",
+      "tertiary_fixed": "#f1dee1",
+      "surface_container": "#f7ebeb",
+      "on_error_container": "#93000a",
+      "on_tertiary_fixed": "#23191b",
+      "on_background": "#201a1a",
+      "primary": "#000000",
+      "primary_container": "#1c1b1b",
+      "surface_bright": "#fff8f7"
+    },
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#0f0f0f",
+    "overrideSecondaryColor": "#2d2e2e",
+    "overrideTertiaryColor": "#bcabae",
+    "overrideNeutralColor": "#716969",
+    "spacingScale": 2,
+    "typography": {
+      "body-md": {
+        "fontFamily": "Geist",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "20px",
+        "letterSpacing": "0em"
+      },
+      "label-mono-xs": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "10px",
+        "fontWeight": "500",
+        "lineHeight": "12px",
+        "letterSpacing": "0.08em"
+      },
+      "headline-xl": {
+        "fontFamily": "Geist",
+        "fontSize": "40px",
+        "fontWeight": "600",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.03em"
+      },
+      "body-sm": {
+        "fontFamily": "Geist",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "0em"
+      },
+      "headline-md": {
+        "fontFamily": "Geist",
+        "fontSize": "22px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "letterSpacing": "-0.015em"
+      },
+      "label-mono-md": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "0.04em"
+      },
+      "body-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "-0.005em"
+      },
+      "label-mono-sm": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "14px",
+        "letterSpacing": "0.06em"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Geist",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px",
+        "letterSpacing": "-0.02em"
+      },
+      "headline-sm": {
+        "fontFamily": "Geist",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "-0.01em"
+      },
+      "headline-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "30px",
+        "fontWeight": "600",
+        "lineHeight": "38px",
+        "letterSpacing": "-0.025em"
+      }
+    },
+    "spacing": {
+      "space-md": "0.75rem",
+      "space-xl": "2rem",
+      "margin-lg": "2.5rem",
+      "gutter": "1rem",
+      "space-xs": "0.25rem",
+      "space-sm": "0.5rem",
+      "margin": "1.5rem",
+      "gutter-lg": "1.5rem",
+      "space-lg": "1.25rem"
+    },
+    "headlineFontFamily": "Geist",
+    "bodyFontFamily": "Geist",
+    "labelFontFamily": "JetBrains Mono"
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE",
+    "displayMode": "HTML"
+  },
+  "designSystem": {
+    "name": "assets/64f94871447845328dbe4fa4710b7888",
+    "designSystem": {
+      "displayName": "Executive Talent Intelligence",
+      "styleGuidelines": "## Brand & Style\n\nThis design system delivers an executive-grade, analytically rigorous environment for candidate screening and interview intelligence. Blending the structural restraint of modern developer utilities with the elevated typographic poise of editorial publishing, the aesthetic rejects the flashy, speculative tropes of generative AI (no bright purple gradients, glassmorphism, or synthetic glowing badges). Instead, it projects legal-grade accountability, institutional trust, and calm authority.\n\nThe system targets senior talent partners, hiring executives, and technical bar-raisers. Every interface interaction evokes clarity, precision, and verifiability. The visual philosophy couples razor-sharp layout architecture with meticulous information density, making complex talent pipelines and multimodal interview transcripts effortless to audit.\n\n## Layout & Spacing\n\nThe layout is built upon an adjustable 12-column grid balanced by rigid structural boundaries. Content density remains high without feeling compressed through strict horizontal rhythm and standardized cell heights.\n\n- **Grid Architecture**: 12-column fluid structure paired with an immutable 280px left-hand intelligence navigation rail and an optional 380px contextual evidence drawer on the right.\n- **Desktop (\u003e= 1280px)**: 24px column gutters with 40px outer canvas margins. Multi-column transcript-to-scorecard validation splits.\n- **Tablet (768px - 1279px)**: 16px column gutters with 24px outer margins. Collapses secondary audit drawers into overlay sheets.\n- **Mobile (\u003c 768px)**: 4-column flow with 16px margins. Evidence cards stack directly below interview summaries.\n- **Vertical Rhythm**: Spacing scales strictly using 4px and 8px base units. Interactive table rows are locked to 40px (compact) and 56px (editorial reading) heights to eliminate visual jitter.\n\n## Elevation & Depth\n\nThis design system deliberately eschews heavy blur radii, multi-stop drop shadows, and dramatic depth illusions. Depth is communicated strictly via **planar layering** and **optical hairline containment**:\n\n- **Layer 0 (Canvas Base)**: `#FBFBFB` – Underlying canvas.\n- **Layer 1 (Card & Module Surfaces)**: Pure `#FFFFFF`, bound by a crisp 1px border of `rgba(113, 105, 105, 0.20)`.\n- **Layer 2 (Contextual Popovers & Overlays)**: `#FFFFFF` encased in a dual-border technique: an inner 1px border of `rgba(113, 105, 105, 0.25)` complemented by an ultra-diffused, shadowless ambient penumbra: `0 1px 3px rgba(15, 15, 15, 0.04), 0 8px 24px rgba(15, 15, 15, 0.03)`.\n- **Active Structural Hierarchy**: Hover states and active selections never lift along the Z-axis. Instead, they shift planar tinting (e.g., `#F4F4F3`) or darken their bounding hairlines from `rgba(113, 105, 105, 0.2)` to `#0F0F0F`.\n\n## Components\n\n### 1. Buttons\n- **Primary**: Solid `#0F0F0F` fill with `#FBFBFB` text. No drop shadow. Hover shifts to `#2D2E2E`. Active scale down to 0.99.\n- **Secondary / Outline**: `#FFFFFF` background with 1px border of `rgba(113, 105, 105, 0.25)` and `#0F0F0F` text. Hover transitions background to `#F5F5F4`.\n- **Ghost**: Transparent fill, `#2D2E2E` text. Hover yields `#EFEFEF` at 8px radius.\n- **Audit / Trace Trigger**: Monospace text (`JetBrains Mono`, 11px), 1px dashed border `rgba(113, 105, 105, 0.4)`. Used strictly when clicking opens verification data.\n\n### 2. Form Inputs & Selectors\n- **Text Inputs**: Crisp `#FFFFFF` surface with 1px `rgba(113, 105, 105, 0.25)` perimeter. Text in `Geist`, 13px. Focus replaces border with 1px `#0F0F0F` outline and an outer 2px halo of `rgba(188, 171, 174, 0.35)` (Lilac Ash).\n- **Checkboxes & Radios**: 16px square/circle with 1px stroke. Checked state is solid `#0F0F0F` housing a white checkmark.\n\n### 3. Responsible AI Badges & Chips\nThese components discard neon, glowing, or gradient stylings in favor of disciplined evidentiary markers:\n- **`[AI INSIGHT]`**: `#2D2E2E` text on `#F0EFEF` tag; `JetBrains Mono` uppercase 10px; hairline border in `rgba(113, 105, 105, 0.2)`.\n- **`[SOURCE: TRANSCRIPT §4.2]`**: `#344054` on `#F2F4F7`; clickable indicator linking directly to video/audio timestamp.\n- **`[VALIDATION NEEDED]`**: `#7C5329` text on `#FBF6F0`; signals ambiguity or conflicting candidate claims requiring human evaluation.\n- **`[VERIFIED EVIDENCE]`**: `#2B4C3F` text on `#F0F4F2`; anchored to verified repository commits, employment records, or code execution tests.\n\n### 4. Cards & Data Tables\n- **Analytical Card**: Flat white background, 12px radius, enclosed in a 1px `rgba(113, 105, 105, 0.2)` border. Headers feature a mono subtitle eyebrow, a 17px Geist medium heading, and a discrete hairline separator running edge-to-edge.\n- **Data Table**: Borderless outer edges with alternating subtle rows or pure white rows delineated by hairline bottom borders (`rgba(113, 105, 105, 0.15)`). Monospace numbers right-aligned with tabular numerals enabled (`font-variant-numeric: tabular-nums`).\n\n### 5. Candidate Transcript & Evidence Split-Pane\n- Left pane displays the transcript in `Geist` with inline speaker tags (`JetBrains Mono`).\n- Critical interview claims display an unobtrusive lilac-ash underline (`#BCABAE`). Hovering surfaces an analytical sidebar displaying extracted behavioral metrics, technical verification status, and timestamp validation without obscuring contextual reading flow.",
+      "theme": {
+        "colorMode": "LIGHT",
+        "font": "GEIST",
+        "roundness": "ROUND_EIGHT",
+        "customColor": "#0f0f0f",
+        "headlineFont": "GEIST",
+        "bodyFont": "GEIST",
+        "labelFont": "JETBRAINS_MONO",
+        "namedColors": {
+          "surface_bright": "#fff8f7",
+          "on_tertiary_fixed_variant": "#504446",
+          "outline": "#747878",
+          "on_error_container": "#93000a",
+          "secondary_fixed": "#e3e2e2",
+          "on_primary_fixed_variant": "#474646",
+          "surface": "#fff8f7",
+          "tertiary_fixed": "#f1dee1",
+          "secondary": "#5e5e5e",
+          "inverse_primary": "#c8c6c5",
+          "secondary_fixed_dim": "#c7c6c6",
+          "error": "#ba1a1a",
+          "primary": "#000000",
+          "inverse_on_surface": "#faeeee",
+          "tertiary_container": "#23191b",
+          "tertiary": "#000000",
+          "on_surface_variant": "#444748",
+          "primary_fixed_dim": "#c8c6c5",
+          "on_primary_container": "#858383",
+          "surface_container_lowest": "#ffffff",
+          "tertiary_fixed_dim": "#d4c2c5",
+          "surface_container": "#f7ebeb",
+          "on_surface": "#201a1a",
+          "on_secondary_container": "#646464",
+          "on_tertiary_container": "#8f8083",
+          "secondary_container": "#e3e2e2",
+          "surface_container_high": "#f1e6e5",
+          "primary_fixed": "#e5e2e1",
+          "surface_container_low": "#fdf1f1",
+          "on_secondary": "#ffffff",
+          "surface_variant": "#ebe0e0",
+          "primary_container": "#1c1b1b",
+          "on_background": "#201a1a",
+          "on_tertiary_fixed": "#23191b",
+          "on_primary": "#ffffff",
+          "on_error": "#ffffff",
+          "on_primary_fixed": "#1c1b1b",
+          "surface_dim": "#e3d7d7",
+          "inverse_surface": "#352f2f",
+          "surface_tint": "#5f5e5e",
+          "surface_container_highest": "#ebe0e0",
+          "on_tertiary": "#ffffff",
+          "outline_variant": "#c4c7c7",
+          "background": "#fff8f7",
+          "error_container": "#ffdad6",
+          "on_secondary_fixed": "#1b1c1c",
+          "on_secondary_fixed_variant": "#464747"
+        },
+        "designMd": "---\nname: Executive Talent Intelligence\ncolors:\n  surface: '#fff8f7'\n  surface-dim: '#e3d7d7'\n  surface-bright: '#fff8f7'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#fdf1f1'\n  surface-container: '#f7ebeb'\n  surface-container-high: '#f1e6e5'\n  surface-container-highest: '#ebe0e0'\n  on-surface: '#201a1a'\n  on-surface-variant: '#444748'\n  inverse-surface: '#352f2f'\n  inverse-on-surface: '#faeeee'\n  outline: '#747878'\n  outline-variant: '#c4c7c7'\n  surface-tint: '#5f5e5e'\n  primary: '#000000'\n  on-primary: '#ffffff'\n  primary-container: '#1c1b1b'\n  on-primary-container: '#858383'\n  inverse-primary: '#c8c6c5'\n  secondary: '#5e5e5e'\n  on-secondary: '#ffffff'\n  secondary-container: '#e3e2e2'\n  on-secondary-container: '#646464'\n  tertiary: '#000000'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#23191b'\n  on-tertiary-container: '#8f8083'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#e5e2e1'\n  primary-fixed-dim: '#c8c6c5'\n  on-primary-fixed: '#1c1b1b'\n  on-primary-fixed-variant: '#474646'\n  secondary-fixed: '#e3e2e2'\n  secondary-fixed-dim: '#c7c6c6'\n  on-secondary-fixed: '#1b1c1c'\n  on-secondary-fixed-variant: '#464747'\n  tertiary-fixed: '#f1dee1'\n  tertiary-fixed-dim: '#d4c2c5'\n  on-tertiary-fixed: '#23191b'\n  on-tertiary-fixed-variant: '#504446'\n  background: '#fff8f7'\n  on-background: '#201a1a'\n  surface-variant: '#ebe0e0'\ntypography:\n  headline-xl:\n    fontFamily: Geist\n    fontSize: 40px\n    fontWeight: '600'\n    lineHeight: 48px\n    letterSpacing: -0.03em\n  headline-lg:\n    fontFamily: Geist\n    fontSize: 30px\n    fontWeight: '600'\n    lineHeight: 38px\n    letterSpacing: -0.025em\n  headline-lg-mobile:\n    fontFamily: Geist\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.02em\n  headline-md:\n    fontFamily: Geist\n    fontSize: 22px\n    fontWeight: '500'\n    lineHeight: 28px\n    letterSpacing: -0.015em\n  headline-sm:\n    fontFamily: Geist\n    fontSize: 17px\n    fontWeight: '500'\n    lineHeight: 24px\n    letterSpacing: -0.01em\n  body-lg:\n    fontFamily: Geist\n    fontSize: 15px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: -0.005em\n  body-md:\n    fontFamily: Geist\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Geist\n    fontSize: 12px\n    fontWeight: '400'\n    lineHeight: 18px\n    letterSpacing: 0em\n  label-mono-md:\n    fontFamily: JetBrains Mono\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\n    letterSpacing: 0.04em\n  label-mono-sm:\n    fontFamily: JetBrains Mono\n    fontSize: 11px\n    fontWeight: '400'\n    lineHeight: 14px\n    letterSpacing: 0.06em\n  label-mono-xs:\n    fontFamily: JetBrains Mono\n    fontSize: 10px\n    fontWeight: '500'\n    lineHeight: 12px\n    letterSpacing: 0.08em\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  gutter: 1rem\n  gutter-lg: 1.5rem\n  margin: 1.5rem\n  margin-lg: 2.5rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 0.75rem\n  space-lg: 1.25rem\n  space-xl: 2rem\n---\n\n## Brand & Style\n\nThis design system delivers an executive-grade, analytically rigorous environment for candidate screening and interview intelligence. Blending the structural restraint of modern developer utilities with the elevated typographic poise of editorial publishing, the aesthetic rejects the flashy, speculative tropes of generative AI (no bright purple gradients, glassmorphism, or synthetic glowing badges). Instead, it projects legal-grade accountability, institutional trust, and calm authority.\n\nThe system targets senior talent partners, hiring executives, and technical bar-raisers. Every interface interaction evokes clarity, precision, and verifiability. The visual philosophy couples razor-sharp layout architecture with meticulous information density, making complex talent pipelines and multimodal interview transcripts effortless to audit.\n\n## Colors\n\nThe palette is rooted in an ultra-refined architectural monochrome, paired with a singular desaturated mineral accent:\n\n- **Canvas & Primary Surface (`#FBFBFB`)**: Off-white field providing a quiet, glare-free background that enhances readability over extended analytical sessions.\n- **Primary Ink / Deep Accent (`#0F0F0F`)**: Deep onyx used for high-contrast titles, primary interactive buttons, and critical data points.\n- **Secondary Slate (`#2D2E2E`)**: Dense graphite for section dividers, secondary buttons, toolbars, and contextual metadata panels.\n- **Structural Neutral (`#716969`)**: Dim grey leveraged at varying opacities for hairline borders (`rgba(113, 105, 105, 0.2)`), table grids, and de-emphasized metadata labels.\n- **Lilac Ash (`#BCABAE`)**: Muted, sophisticated neutral-tint accent. Applied sparingly for subtle active indicator rings, timeline scrubbing pins, and grounded analytical callouts.\n\n### Semantic Status Palette (Responsible AI)\n- **Positive / Verified**: `#2B4C3F` (Deep Forest) on `#F0F4F2` (Whisper Pine)\n- **Attention / Validation Needed**: `#7C5329` (Umber Ochre) on `#FBF6F0` (Muted Sand)\n- **Citation / Traceability**: `#344054` (Iron Blue) on `#F2F4F7` (Pale Slate)\n\n## Typography\n\nThe typographic hierarchy operates through a dual-engine model:\n\n1. **Editorial Grotesk (`Geist`)**: Commands all conversational, evaluative, and synthesized prose. Headings feature tight letter spacing, high structural stability, and calibrated line heights that echo Scandinavian editorial journals and precision tools.\n2. **Deterministic Monospace (`JetBrains Mono`)**: Powers the systemic evidence layer. Any data derived from an algorithm, time-stamped video transcript, citation anchor, candidate commit log, or model audit trail must be rendered in `JetBrains Mono`. This enforces an unambiguous psychological boundary between subjective human analysis and objective machine telemetry.\n\n## Layout & Spacing\n\nThe layout is built upon an adjustable 12-column grid balanced by rigid structural boundaries. Content density remains high without feeling compressed through strict horizontal rhythm and standardized cell heights.\n\n- **Grid Architecture**: 12-column fluid structure paired with an immutable 280px left-hand intelligence navigation rail and an optional 380px contextual evidence drawer on the right.\n- **Desktop (\u003e= 1280px)**: 24px column gutters with 40px outer canvas margins. Multi-column transcript-to-scorecard validation splits.\n- **Tablet (768px - 1279px)**: 16px column gutters with 24px outer margins. Collapses secondary audit drawers into overlay sheets.\n- **Mobile (\u003c 768px)**: 4-column flow with 16px margins. Evidence cards stack directly below interview summaries.\n- **Vertical Rhythm**: Spacing scales strictly using 4px and 8px base units. Interactive table rows are locked to 40px (compact) and 56px (editorial reading) heights to eliminate visual jitter.\n\n## Elevation & Depth\n\nThis design system deliberately eschews heavy blur radii, multi-stop drop shadows, and dramatic depth illusions. Depth is communicated strictly via **planar layering** and **optical hairline containment**:\n\n- **Layer 0 (Canvas Base)**: `#FBFBFB` – Underlying canvas.\n- **Layer 1 (Card & Module Surfaces)**: Pure `#FFFFFF`, bound by a crisp 1px border of `rgba(113, 105, 105, 0.20)`.\n- **Layer 2 (Contextual Popovers & Overlays)**: `#FFFFFF` encased in a dual-border technique: an inner 1px border of `rgba(113, 105, 105, 0.25)` complemented by an ultra-diffused, shadowless ambient penumbra: `0 1px 3px rgba(15, 15, 15, 0.04), 0 8px 24px rgba(15, 15, 15, 0.03)`.\n- **Active Structural Hierarchy**: Hover states and active selections never lift along the Z-axis. Instead, they shift planar tinting (e.g., `#F4F4F3`) or darken their bounding hairlines from `rgba(113, 105, 105, 0.2)` to `#0F0F0F`.\n\n## Shapes\n\nThe geometric framework favors controlled, modern architectural contours. \n\n- Interactive controls (inputs, buttons, pill badges, and segment switches) utilize an 8px radius (`0.5rem`).\n- Structural cards, analytical charts, code blocks, and transcript panels leverage a 12px corner radius (`0.75rem`).\n- Micro indicators (status chips, avatar fallbacks, tag counters) preserve crisp, proportional geometry without softening into fully circular pill capsules, maintaining an intentional, tool-grade poise.\n\n## Components\n\n### 1. Buttons\n- **Primary**: Solid `#0F0F0F` fill with `#FBFBFB` text. No drop shadow. Hover shifts to `#2D2E2E`. Active scale down to 0.99.\n- **Secondary / Outline**: `#FFFFFF` background with 1px border of `rgba(113, 105, 105, 0.25)` and `#0F0F0F` text. Hover transitions background to `#F5F5F4`.\n- **Ghost**: Transparent fill, `#2D2E2E` text. Hover yields `#EFEFEF` at 8px radius.\n- **Audit / Trace Trigger**: Monospace text (`JetBrains Mono`, 11px), 1px dashed border `rgba(113, 105, 105, 0.4)`. Used strictly when clicking opens verification data.\n\n### 2. Form Inputs & Selectors\n- **Text Inputs**: Crisp `#FFFFFF` surface with 1px `rgba(113, 105, 105, 0.25)` perimeter. Text in `Geist`, 13px. Focus replaces border with 1px `#0F0F0F` outline and an outer 2px halo of `rgba(188, 171, 174, 0.35)` (Lilac Ash).\n- **Checkboxes & Radios**: 16px square/circle with 1px stroke. Checked state is solid `#0F0F0F` housing a white checkmark.\n\n### 3. Responsible AI Badges & Chips\nThese components discard neon, glowing, or gradient stylings in favor of disciplined evidentiary markers:\n- **`[AI INSIGHT]`**: `#2D2E2E` text on `#F0EFEF` tag; `JetBrains Mono` uppercase 10px; hairline border in `rgba(113, 105, 105, 0.2)`.\n- **`[SOURCE: TRANSCRIPT §4.2]`**: `#344054` on `#F2F4F7`; clickable indicator linking directly to video/audio timestamp.\n- **`[VALIDATION NEEDED]`**: `#7C5329` text on `#FBF6F0`; signals ambiguity or conflicting candidate claims requiring human evaluation.\n- **`[VERIFIED EVIDENCE]`**: `#2B4C3F` text on `#F0F4F2`; anchored to verified repository commits, employment records, or code execution tests.\n\n### 4. Cards & Data Tables\n- **Analytical Card**: Flat white background, 12px radius, enclosed in a 1px `rgba(113, 105, 105, 0.2)` border. Headers feature a mono subtitle eyebrow, a 17px Geist medium heading, and a discrete hairline separator running edge-to-edge.\n- **Data Table**: Borderless outer edges with alternating subtle rows or pure white rows delineated by hairline bottom borders (`rgba(113, 105, 105, 0.15)`). Monospace numbers right-aligned with tabular numerals enabled (`font-variant-numeric: tabular-nums`).\n\n### 5. Candidate Transcript & Evidence Split-Pane\n- Left pane displays the transcript in `Geist` with inline speaker tags (`JetBrains Mono`).\n- Critical interview claims display an unobtrusive lilac-ash underline (`#BCABAE`). Hovering surfaces an analytical sidebar displaying extracted behavioral metrics, technical verification status, and timestamp validation without obscuring contextual reading flow.",
+        "colorVariant": "FIDELITY",
+        "overridePrimaryColor": "#0f0f0f",
+        "overrideSecondaryColor": "#2d2e2e",
+        "overrideTertiaryColor": "#bcabae",
+        "overrideNeutralColor": "#716969",
+        "spacingScale": 2,
+        "typography": {
+          "label-mono-md": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "12px",
+            "fontWeight": "500",
+            "lineHeight": "16px",
+            "letterSpacing": "0.04em"
+          },
+          "body-sm": {
+            "fontFamily": "Geist",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "lineHeight": "18px",
+            "letterSpacing": "0em"
+          },
+          "headline-xl": {
+            "fontFamily": "Geist",
+            "fontSize": "40px",
+            "fontWeight": "600",
+            "lineHeight": "48px",
+            "letterSpacing": "-0.03em"
+          },
+          "label-mono-sm": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "11px",
+            "fontWeight": "400",
+            "lineHeight": "14px",
+            "letterSpacing": "0.06em"
+          },
+          "headline-md": {
+            "fontFamily": "Geist",
+            "fontSize": "22px",
+            "fontWeight": "500",
+            "lineHeight": "28px",
+            "letterSpacing": "-0.015em"
+          },
+          "body-md": {
+            "fontFamily": "Geist",
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "lineHeight": "20px",
+            "letterSpacing": "0em"
+          },
+          "label-mono-xs": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "10px",
+            "fontWeight": "500",
+            "lineHeight": "12px",
+            "letterSpacing": "0.08em"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Geist",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "lineHeight": "32px",
+            "letterSpacing": "-0.02em"
+          },
+          "body-lg": {
+            "fontFamily": "Geist",
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "lineHeight": "24px",
+            "letterSpacing": "-0.005em"
+          },
+          "headline-sm": {
+            "fontFamily": "Geist",
+            "fontSize": "17px",
+            "fontWeight": "500",
+            "lineHeight": "24px",
+            "letterSpacing": "-0.01em"
+          },
+          "headline-lg": {
+            "fontFamily": "Geist",
+            "fontSize": "30px",
+            "fontWeight": "600",
+            "lineHeight": "38px",
+            "letterSpacing": "-0.025em"
+          }
+        },
+        "spacing": {
+          "space-xl": "2rem",
+          "gutter": "1rem",
+          "margin-lg": "2.5rem",
+          "space-md": "0.75rem",
+          "gutter-lg": "1.5rem",
+          "space-lg": "1.25rem",
+          "margin": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem"
+        },
+        "headlineFontFamily": "Geist",
+        "bodyFontFamily": "Geist",
+        "labelFontFamily": "JetBrains Mono"
+      }
+    },
+    "version": "1"
+  }
+}
